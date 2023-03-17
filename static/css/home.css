@@ -1,0 +1,201 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(176, 96, 96); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+
+.main-container{
+    width: 100%;
+    height: 100vh;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contant-container{
+    /* margin-top: 10%; */
+    background-color: white;
+    width: 50%;
+    height: 75vh;
+    text-align: center;
+    padding: 5px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    box-shadow: 5px 10px 20px 1px rgb(237, 232, 232);
+    box-shadow: 5px 10px 20px 1px rgb(212, 168, 168);
+    
+}
+.container-title{
+    padding-top:20px;
+
+}
+.container-title h1{
+    font-weight: bold;
+    color: rgb(171, 170, 170);
+
+}
+.add-container{
+    /* padding-left: 5px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding-top: 5px;   
+}
+.add-container input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+
+    /* background-color: rgb(171, 170, 170); */
+}
+.add-container h4{
+    color: rgb(65, 64, 64);
+}
+.category-date{
+    display: flex;
+    /* justify-content: start;
+    align-items: start; */
+}
+.category{
+    width: 50%;
+    /* border: 1px solid red; */
+    /* border-top:1px solid black; */
+    border-bottom: 1px solid black;
+    /* border-right: 1px solid black; */
+    text-align: left;
+}
+.category select{
+    width: 100%;
+    padding: 2px;
+    margin: 1px;
+    border: none;
+    outline: none;
+  
+}
+.date{
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    width: 50%;
+    text-align: left;
+    padding-left: 7px;
+}
+#date{
+    width: 100%;
+    border: none;
+    outline: none;
+}
+.bttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.bttons .delete-task,.bttons .btn-add-task{
+    padding: 5px 7px;
+}
+.bttons button{
+    padding: 8px 12px;
+    border: none;
+}
+#del-btn{
+    color: white;
+
+    background-color: rgb(147, 17, 17);
+}
+#del-btn:hover{
+    cursor: pointer;
+}
+#add-btn{
+    color: white;
+    background-color: rgb(31, 31, 90);
+}
+#add-btn:hover{
+    cursor: pointer;
+}
+
+.task{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding-top: 3px;
+    
+}
+.left-containt{
+    /* border: 1px solid red; */
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    align-items: start;
+    padding-left: 10px;
+}
+.left-containt div{
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.right-cotaint{
+    /* border: 1px solid green; */
+    min-width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right-cotaint button{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    /* background-color: orange; */
+    color: white;
+    text-transform: capitalize;
+    border-radius: 5px;
+}
+.school{
+    background-color: #b30000;
+}
+.work{
+    background-color: rgb(153, 156, 44);
+}
+.personal{
+    background-color: rgb(26, 103, 77);
+}
+.task:hover{
+    background-color: rgb(251, 221, 165);
+}
+.show-pending-task{
+    margin-top: 10px;
+}
+
+
+
+.fa-plus{
+    padding-right: 5px;
+    font-size: larger;
+}
+.fa-trash{
+    padding-right: 5px;
+    font-size: large;
+    
+}

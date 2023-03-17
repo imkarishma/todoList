@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>TODO</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="contant-container">
+            <form action="/create" method="post">
+            <div class="container-title">
+                <h1>TODO App</h1>
+            </div>
+            <hr>
+            <div class="add-container">
+                <h4>DISCRIPION</h4>
+                <input type="text" name="des" placeholder="What do you need to do?" required>
+            </div>
+            <hr>
+            <div class="category-date">
+                <div class="category">
+                    <h4>CATEFORY</h4>
+                    <select name="category" id="">
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                        <option value="personal">Personal</option>
+                    </select>
+                </div>
+                <div class="date">
+                    <h4>DUE DATE</h4>
+                    <input type="date" name="date" id="date">
+                </div>
+            </div>
+            <div class="bttons">
+                <div class="btn-add-task">
+                    <button type="submit" id="add-btn" class=""><i class="fa-duotone fa-plus"></i> ADD TASK</button>
+                </div>
+                <div class="delete-task">
+                    <button id="del-btn" type="button" onclick="myfunction()"><i class="fa-sharp fa-solid fa-trash"></i> DELETE TASK</button>
+                </div>
+            </div>
+            </form>
+            <div class="show-pending-task">
+                <% if(contactlist==0){%>
+                    <div><h1>No task available</h1></div>
+                    <%}else{%>
+                <%for(let i=0;i<contactlist.length;i++){%>
+                    <div class="task">
+                        <div class="left-containt">
+                            <div>
+                                <input type="checkbox" name="" value="<%=contactlist[i]._id%>" class="checkbox1">
+                                <span><%=contactlist[i].discription%></span>
+                            </div>
+                            <span><i class="fa-solid fa-calendar-days"></i> <%=contactlist[i].Duedate%></span>
+                        </div>
+                        <div class="right-cotaint">
+                            <button class="task-btn <%=contactlist[i].category%>" ><%=contactlist[i].category%></button>
+                        </div>
+                    </div>                
+                <%}}%>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let ids=[]
+    async function myfunction(){
+        let allchecked=document.getElementsByClassName("checkbox1");
+        for(let i=0;i<allchecked.length;i++){
+            if(allchecked[i].checked==true){
+                ids.push(allchecked[i].value)
+            }
+        }
+        if(ids.length==0){
+            alert("Please select task to delete")
+        }else{
+            if(confirm("Are you sure?")){
+            const response=await fetch('http://localhost:8000/delete-task',{
+            method:"DELETE",
+            body:JSON.stringify({ids:ids}),
+            headers:{
+                "Content-Type": "application/json"
+            }
+        })
+        const data=await response.json()
+        if(data.success){
+            location.reload();
+        }
+            }
+        }
+    }
+</script>
+</html>
